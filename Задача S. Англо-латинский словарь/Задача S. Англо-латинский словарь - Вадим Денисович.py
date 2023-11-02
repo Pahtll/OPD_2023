@@ -1,4 +1,4 @@
-n, words = int(input()), {}
+n, words = int(input()), {} #Вадим сколько мне ждать мой блант?
 for _ in range(n):
     el = input().replace("-",'').replace(',','').split()
     for i in range(1, len(el)):
