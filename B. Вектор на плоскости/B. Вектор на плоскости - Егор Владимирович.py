@@ -1,32 +1,32 @@
 from math import sqrt
 
 class MyVector(object):
-    #Инициализируем координаты вектора
+    #РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµРєС‚РѕСЂР°
     def __init__(self, x: int, y: int) -> None:
         self.x = x
         self.y = y
-    #Реализуем сложение, вычитание и умножение
+    #Р РµР°Р»РёР·СѓРµРј СЃР»РѕР¶РµРЅРёРµ, РІС‹С‡РёС‚Р°РЅРёРµ Рё СѓРјРЅРѕР¶РµРЅРёРµ
     def __add__(self, other):
         return MyVector((self.x + other.x), (self.y + other.y))
     def __sub__(self, other):
         return MyVector((self.x - other.x), (self.y - other.y))
     def __mul__(self, value):
         return MyVector(self.x * value, self.y * value)
-    #Метод для измерения абсолютного значения (длинны) вектора
+    #РњРµС‚РѕРґ РґР»СЏ РёР·РјРµСЂРµРЅРёСЏ Р°Р±СЃРѕР»СЋС‚РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ (РґР»РёРЅРЅС‹) РІРµРєС‚РѕСЂР°
     def __abs__(self):
         return sqrt(self.x**2 + self.y**2)
-    #Проверка на равенство, неравенство
+    #РџСЂРѕРІРµСЂРєР° РЅР° СЂР°РІРµРЅСЃС‚РІРѕ, РЅРµСЂР°РІРµРЅСЃС‚РІРѕ
     def __eq__(self, other):
         if isinstance(other, MyVector):
             return self.x == other.x and self.y == other.y
         return False
     def __ne__(self, other):
         return not self == other
-    #Строковое представление (то, что даётся при str(MyVector), что и делает print() при выводе в консоль)
+    #РЎС‚СЂРѕРєРѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ (С‚Рѕ, С‡С‚Рѕ РґР°С‘С‚СЃСЏ РїСЂРё str(MyVector), С‡С‚Рѕ Рё РґРµР»Р°РµС‚ print() РїСЂРё РІС‹РІРѕРґРµ РІ РєРѕРЅСЃРѕР»СЊ)
     def __str__(self):
         return f"{abs(MyVector(self.x, self.y))}"
 
-#Создание и тесты экземпляров класса        
+#РЎРѕР·РґР°РЅРёРµ Рё С‚РµСЃС‚С‹ СЌРєР·РµРјРїР»СЏСЂРѕРІ РєР»Р°СЃСЃР°        
 v1 = MyVector(-2, 5)
 v2 = MyVector(3, -4)
 v_sum = v1 + v2
