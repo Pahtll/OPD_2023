@@ -11,7 +11,6 @@ class MyVector:
     def __add__(self, other):
         self.x += other.x
         self.y += other.y
-        return f'MyVector({self.x}, {self.y})'
 
     # Специальная функция вычитания, когда вычитается два вектора
     def __sub__(self, other):
