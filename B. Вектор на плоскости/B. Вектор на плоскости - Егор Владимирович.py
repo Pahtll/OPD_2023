@@ -12,9 +12,6 @@ class MyVector(object):
         return MyVector((self.x - other.x), (self.y - other.y))
     def __mul__(self, value):
         return MyVector(self.x * value, self.y * value)
-    #Исправляем ошибку, которая возникает при умножении не 3 * v1, а v1 * 3
-    def __rmul__(self, other):
-        return self.__mul__(other)
     #Метод для измерения абсолютного значения (длинны) вектора
     def __abs__(self):
         return sqrt(self.x**2 + self.y**2)
