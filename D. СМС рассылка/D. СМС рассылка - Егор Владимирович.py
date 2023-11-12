@@ -1,10 +1,11 @@
 class Person:
+    #Инициализируем поля класса Person
     def __init__(self, firstName: str, secondName: str, thirdName: str, dictionary: dict) -> None:
         self.firstName = firstName
         self.secondName = secondName
         self.thirdName = thirdName
         self.dictionary = dictionary
-    
+    #Делаем функции, для получения данных из полей
     def GetName(self) -> str:
         return f"{self.secondName} {self.firstName} {self.thirdName}"
     
@@ -20,12 +21,13 @@ class Person:
     
 
 class Company:
-    def __init__(self, companyName: str, companyType: str, dictionary: dict, *arg) -> None:
+    #Инициализируем поля класса Company, передаём *arg, а именно объекты класса Person
+    def __init__(self, companyName: str, companyType: str, dictionary: dict, *arg: Person) -> None:
         self.companyName = companyName
         self.companyType = companyType
         self.dictionary = dictionary
         self.person = arg
-        
+    #Создаём функцию, которая возвращает верное значение номера    
     def GetPhone(self, key = "contact") -> int:
         if key in self.dictionary:
             return self.dictionary.get(key)
@@ -40,7 +42,8 @@ class Company:
     def GetSmsText(self) -> str:
         return f'Для компании {self.companyName} есть супер предложение! \
             Примите участие в нашем беспроигрышном конкурсе для {self.companyType}.'
-    
+
+#Создаём функцию SendSMS, которая принимает в себя *объекты, а именно классов Company / Person    
 def sendSMS(*objects) -> str:
     for e in objects:
         if e.GetPhone():
@@ -48,6 +51,7 @@ def sendSMS(*objects) -> str:
         else:
             print(f'Не удалось отправить сообщение абоненту: {e.GetName()}')    
 
+#Тесты
 person1 = Person("Ivan", "Ivanovich", "Ivanov", {"private":789})
 person2 = Person("Ivan", "Petrovich", "Sidorov", {"work":789})
 person3 = Person("John", "Unknown", "Doe", {})
