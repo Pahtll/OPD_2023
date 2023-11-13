@@ -28,7 +28,7 @@ class CubeSummator(Summator):
 
 #Тесты
 line = Summator(15)
-cube = CubeSummator(15)
 square = SquareSummator(15)
+cube = CubeSummator(15)
 
 print(f"{line.Sum()} in ^1, {suqare.Sum()} in ^2 and {cube.Sum()} in ^3")
