@@ -27,7 +27,8 @@ class CubeSummator(Summator):
         return super().Transform(n**3)
 
 #Тесты
+line = Summator(15)
 cube = CubeSummator(15)
 square = SquareSummator(15)
 
-print(f"{cube.Sum()} in ^3 and {square.Sum()} in ^2")
+print(f"{line.Sum()} in ^1, {suqare.Sum()} in ^2 and {cube.Sum()} in ^3")
