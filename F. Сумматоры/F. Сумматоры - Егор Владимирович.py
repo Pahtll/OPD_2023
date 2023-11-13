@@ -26,10 +26,8 @@ class CubeSummator(Summator):
     def Transform(self, n: int) -> int:
         return super().Transform(n**3)
 
-
-#Тесты    
+#Тесты
 cube = CubeSummator(15)
 square = SquareSummator(15)
 
 print(f"{cube.Sum()} in ^3 and {square.Sum()} in ^2")
- 
