@@ -1,4 +1,4 @@
-- def map(func, values):
+def map(func, values):
     new_lst = []
     for el in values:
         new_lst.append(func(el))
