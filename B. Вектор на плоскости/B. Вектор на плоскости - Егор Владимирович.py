@@ -21,7 +21,7 @@ class MyVector(object):
             return self.x == other.x and self.y == other.y
         return False
     def __ne__(self, other):
-        return not self == other
+        return not self != other
     #Строковое представление (то, что даётся при str(MyVector), что и делает print() при выводе в консоль)
     def __str__(self):
         return f"{abs(MyVector(self.x, self.y))}"
