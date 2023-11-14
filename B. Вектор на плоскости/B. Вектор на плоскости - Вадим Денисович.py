@@ -11,16 +11,19 @@ class MyVector:
     def __add__(self, other):
         self.x += other.x
         self.y += other.y
+        return MyVector(self.x, self.y)
 
     # Специальная функция вычитания, когда вычитается два вектора
     def __sub__(self, other):
         self.x -= other.x
         self.y -= other.y
+        return MyVector(self.x, self.y)
 
     # Умножение вектора на константу
     def __mul__(self, other):
         self.x *= other
         self.y *= other
+        return MyVector(self.x, self.y)
 
     # Если константа стоит справа: 3 * MyVector
     def __rmul__(self, other):
@@ -44,4 +47,4 @@ class MyVector:
 
     # Вывод в консоль вектора
     def __str__(self):
-        return str(MyVector(self.x, self.y))
+        return f'MyVector({self.x}, {self.y})'
