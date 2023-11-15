@@ -3,6 +3,10 @@ using System;
 class Queue
 {
     public List<int> nums = new List<int>();
+    /// <summary>
+    /// Переопределяем конструктор
+    /// </summary>
+    /// <param name="args"></param>
     public Queue(params int[] args)
     {
         foreach (int i in args)
@@ -10,6 +14,11 @@ class Queue
             nums.Add(i);
         }
     }
+    /// <summary>
+    /// Метод добавляет в конец очереди числа.
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
     public List<int> Append(params int[] nums)
     {
         foreach (int i in nums)
@@ -18,10 +27,18 @@ class Queue
         }
         return this.nums;
     }
+    /// <summary>
+    /// Копирует текущую очередь в новую.
+    /// </summary>
+    /// <returns></returns>
     public Queue Copy()
     { 
         return new Queue(this.nums.ToArray());
     }
+    /// <summary>
+    /// Выбивает и выводит 0й элемент очереди если она не пустая и 0 если пустая.
+    /// </summary>
+    /// <returns></returns>
     public int Pop()
     {
         if (this.nums.Count == 0)
@@ -32,11 +49,23 @@ class Queue
         this.nums.RemoveAt(0);
         return res;
     }
+    /// <summary>
+    /// Расширяет очередь другой очередью
+    /// </summary>
+    /// <param name="ints"></param>
+    /// <returns></returns>
     public Queue Extend(Queue ints)
     {
         this.nums.AddRange(ints.nums);
         return new Queue(this.nums.ToArray());
     }
+    /*
+     * Перегруженный 3 раза под разные аргументы метод Next()
+     */
+    /// <summary>
+    /// Убирает 0й элемент очереди.
+    /// </summary>
+    /// <returns></returns>
     public Queue Next()
     {
         nums.RemoveAt(0);
@@ -52,6 +81,9 @@ class Queue
         q.nums.RemoveAt(0);
         return new Queue(q.nums.ToArray());
     }
+    /*
+     * Функции для работы операторов сложения, сравнения и переноса.
+     */
     public static Queue operator +(Queue left, Queue right)
     {
         return new Queue(left.Extend(right).nums.ToArray());
@@ -83,6 +115,11 @@ class Queue
             return queue;
         }
     }
+    /// <summary>
+    /// Функция для вывода очереди в текстовом формате (Console.WriteLine() вызывает метод ToString()
+    /// для своей работы.
+    /// </summary>
+    /// <returns></returns>
     public override string ToString()
     {
         string res = "[";
@@ -111,20 +148,6 @@ class Program
 {
     public static void Main(string[] args)
     {
-        Queue q1 = new Queue(1, 2, 3);
-        Console.WriteLine(q1);
-        q1.Append(4, 5);
-        Console.WriteLine(q1);
-        Queue qx = q1.Copy();
-        Console.WriteLine(qx.Pop());
-        Console.WriteLine(qx);
-        Queue q2 = q1.Copy();
-        Console.WriteLine(q2);
-        Console.WriteLine($"{q1 == q2} {qx == q1}");
-        Queue q3 = q2.Next();
-        Console.WriteLine($"{q1}\n{q2}\n{q3}\n");
-        Console.WriteLine(q1 + q3);
-        q3.Extend(new Queue(1, 2));
-        Console.WriteLine(q3);
+        
     }
 }
