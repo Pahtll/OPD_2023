@@ -43,7 +43,7 @@ class MyVector
     {
         return Math.Sqrt(Math.Pow(v.x, 2) + Math.Pow(v.y, 2));
     }
-    // Вывод в консоль идёт по правилу Console.WriteLine(MyVector.ToSteing()); для этого переопределяем работу метода ToString()
+    // Вывод в консоль идёт по правилу Console.WriteLine(MyVector.ToString()); для этого переопределяем работу метода ToString()
     public override string ToString()
     {
         MyVector v = new MyVector(this.x, this.y);
